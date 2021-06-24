@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/themes';
+import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
 	container: {
@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
 		flex: 1,
 		textAlign: 'center',
 		fontSize: 15,
+		fontFamily: theme.fonts.text500,
 		color: theme.colors.heading,
 	},
 });

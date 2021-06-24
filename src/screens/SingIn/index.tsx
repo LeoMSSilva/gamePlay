@@ -1,29 +1,33 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, SafeAreaView, StatusBar, Text, View } from 'react-native';
+import { Image, SafeAreaView, Text, View } from 'react-native';
 import game from '../../assets/illustration.png';
-import { ButtonIcon } from '../../components/buttonIcon';
+import { ButtonIcon } from '../../components/ButtonIcon';
 import { styles } from './styles';
 
 export function SingIn() {
+	const navigation = useNavigation();
+
+	function handleSingIn() {
+		navigation.navigate('Home');
+	}
+	
 	return (
 		<SafeAreaView style={styles.container}>
-			<StatusBar
-				barStyle="light-content"
-				backgroundColor="transparent"
-				translucent
-			/>
 			<Image source={game} style={styles.image} resizeMode={'stretch'} />
 			<View style={styles.content}>
 				<Text style={styles.title}>
-					Organize {'\n'}
-					suas jogatinas {'\n'}
-					facilmente
+					Conecte-se {'\n'}e organize suas {'\n'}
+					jogatinas
 				</Text>
 				<Text style={styles.subtitle}>
 					Crie grupos para jogar seus games {'\n'}
 					favoritos com seus amigos
 				</Text>
-				<ButtonIcon title={'Entre com Discord'} activeOpacity={0.7} />
+				<ButtonIcon
+					title={'Entre com Discord'}
+					onPress={handleSingIn}
+				/>
 			</View>
 		</SafeAreaView>
 	);
