@@ -14,32 +14,8 @@ export const styles = StyleSheet.create({
 		marginTop: getStatusBarHeight() + 26,
 		marginBottom: 42,
 	},
-	head: {},
-	image: {
-		width: '100%',
-		height: 360,
-	},
-	content: {
-		marginTop: 42,
-	},
-	title: {
-		color: theme.colors.heading,
-		textAlign: 'center',
-		fontSize: 40,
-		fontFamily: theme.fonts.title700,
-		marginBottom: 16,
-		lineHeight: 40,
-	},
-	subtitle: {
-		color: theme.colors.heading,
-		textAlign: 'center',
-		fontSize: 15,
-		fontFamily: theme.fonts.title500,
-		marginBottom: 64,
-		lineHeight: 25,
-	},
-	matches:{
+	matches: {
 		marginTop: 24,
-		marginLeft: 24
-	}
+		marginLeft: 24,
+	},
 });
