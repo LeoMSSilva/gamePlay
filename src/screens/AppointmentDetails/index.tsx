@@ -61,6 +61,7 @@ export function AppointmentDetails() {
 				renderItem={({ item }) => <Member data={item} />}
 				ItemSeparatorComponent={() => <ListDivider />}
 				style={styles.members}
+				contentContainerStyle={{paddingBottom: 69}}
 			/>
 
 			<View style={styles.footer}>
