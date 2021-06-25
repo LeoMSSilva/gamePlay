@@ -11,7 +11,7 @@ import { styles } from './styles';
 export type GuildProps = {
 	id: string;
 	name: string;
-	icon: any;
+	icon: null;
 	owner: boolean;
 };
 
@@ -35,7 +35,7 @@ export function Appointments({ data, ...rest }: Props) {
 		<RectButton {...rest}>
 			<View style={styles.container}>
 				<GuildIcon />
-
+				<View style={styles.content}>
 					<View style={styles.header}>
 						<Text style={styles.title}>{data.guild.name}</Text>
 						<Text style={styles.category}>{category.title}</Text>
@@ -52,7 +52,7 @@ export function Appointments({ data, ...rest }: Props) {
 							<Text style={[styles.player, { color: owner ? primary : on }]}>
 								{owner ? 'Anfitrião' : 'Visitante'}
 							</Text>
-
+						</View>
 					</View>
 				</View>
 			</View>

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { FlatList, SafeAreaView, View } from 'react-native';
-import { CategorySelect } from '../../components/CategorySelect';
-import { Appointments } from '../../components/Appointments';
-import { ListDivider } from '../../components/ListDivider';
-import { ListHeader } from '../../components/ListHeader';
-import { ButtonAdd } from '../../components/ButtonAdd';
+import { useNavigation } from '@react-navigation/native';
 import { Profile } from '../../components/Profile';
+import { ButtonAdd } from '../../components/ButtonAdd';
+import { CategorySelect } from '../../components/CategorySelect';
+import { ListHeader } from '../../components/ListHeader';
+import { ListDivider } from '../../components/ListDivider';
+import { Appointments } from '../../components/Appointments';
+import { Background } from '../../components/Background';
 import { styles } from './styles';
 
 export function Home() {
+	const navigation = useNavigation();
 	const [category, setCategory] = useState('');
 	const appointments = [
 		{
@@ -39,33 +42,43 @@ export function Home() {
 		},
 	];
 
+	function handleAppointmentDetails() {
+		navigation.navigate('AppointmentDetails');
+	}
+	function handleAppointmentCreate() {
+		navigation.navigate('AppointmentCreate');
+	}
 	function handleCategotySelect(categoryId: string) {
 		categoryId === category ? setCategory('') : setCategory(categoryId);
 	}
 	return (
-		<SafeAreaView style={styles.container}>
-			<View style={styles.header}>
-				<Profile />
-				<ButtonAdd />
-			</View>
-
-			<View style={styles.head}>
-				<CategorySelect
-					categorySelected={category}
-					setCategory={handleCategotySelect}
-				/>
-				<View style={styles.content}>
-					<ListHeader title="Partidas agendadas" subtitle="Total 6" />
-					<FlatList
-						data={appointments}
-						keyExtractor={(item) => item.id}
-						style={styles.matches}
-						ItemSeparatorComponent={() => <ListDivider />}
-						showsVerticalScrollIndicator={false}
-						renderItem={({ item }) => <Appointments data={item} />}
-					/>
+		<Background>
+			<SafeAreaView style={styles.container}>
+				<View style={styles.header}>
+					<Profile />
+					<ButtonAdd onPress={handleAppointmentCreate}/>
 				</View>
-			</View>
-		</SafeAreaView>
+
+				<View style={styles.head}>
+					<CategorySelect
+						categorySelected={category}
+						setCategory={handleCategotySelect}
+					/>
+					<View style={styles.content}>
+						<ListHeader title="Partidas agendadas" subtitle="Total 6" />
+						<FlatList
+							data={appointments}
+							keyExtractor={(item) => item.id}
+							style={styles.matches}
+							ItemSeparatorComponent={() => <ListDivider />}
+							showsVerticalScrollIndicator={false}
+							renderItem={({ item }) => (
+								<Appointments data={item} onPress={handleAppointmentDetails} />
+							)}
+						/>
+					</View>
+				</View>
+			</SafeAreaView>
+		</Background>
 	);
 }
