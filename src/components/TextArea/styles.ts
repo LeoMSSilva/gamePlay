@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
 		color: theme.colors.heading,
 		fontSize: 13,
 		marginRight: 4,
-		textAlign: 'center',
+		textAlignVertical: 'top',
+		paddingTop: 16,
+		paddingHorizontal: 16,
+		borderWidth: 1,
+		borderColor: theme.colors.secondary50,
 	},
 });
