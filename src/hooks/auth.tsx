@@ -1,9 +1,14 @@
-import * as AuthSession from 'expo-auth-session';
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useState,
+  useEffect,
+} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { api } from '../services/api';
+import * as AuthSession from 'expo-auth-session';
 import { COLLECTION_USER } from '../configs/database';
-import { useEffect } from 'react';
+import { api } from '../services/api';
 
 type User = {
 	id: string;

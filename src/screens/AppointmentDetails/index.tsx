@@ -17,81 +17,89 @@ import { theme } from '../../global/styles/theme';
 import { styles } from './styles';
 
 type Params = {
-	guildSelected: AppointmentProps;
+  guildSelected: AppointmentProps;
 };
 
 type GuildWidget = {
-	id: string;
-	name: string;
-	instant_invite: string;
-	members: MemberProps[];
+  id: string;
+  name: string;
+  instant_invite: string;
+  members: MemberProps[];
 };
 
 export function AppointmentDetails() {
-	const route = useRoute();
-	const [loading, setLoading] = useState(true);
-	const { guildSelected } = route.params as Params;
-	const [widget, setWidget] = useState<GuildWidget>({} as GuildWidget);
+  const route = useRoute();
+  const [loading, setLoading] = useState(true);
+  const { guildSelected } = route.params as Params;
+  const [widget, setWidget] = useState<GuildWidget>({} as GuildWidget);
 
-	async function fetchGuildWidget() {
-		try {
-			const response = await api.get(
-				`/guild/${guildSelected.guild.id}/widget.json`,
-			);
-			setWidget(response.data);
-		} catch {
-			Alert.alert(
-				'Atenção',
-				'Verifique as configurações do servodir. Será que o Widget está habilitado?',
-			);
-		} finally {
-			setLoading(false);
-		}
-	}
+  const fetchGuildWidget = async () => {
+    try {
+      const response = await api.get(
+        `/guilds/${guildSelected.guild.id}/widget.json`
+      );
+      setWidget(response.data);
+    } catch {
+      Alert.alert(
+        'Atenção',
+        'Verifique as configurações do servidor. Será que o Widget está habilitado?'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
-	useEffect(() => {
-		fetchGuildWidget();
-	}, []);
+  const handleShareGame = () => {
+    Alert.alert('Compartilhar', 'Compartilhando seu link...');
+  };
 
-	return (
-		<Background>
-			<Header
-				title="Detalhes"
-				action={
-					<BorderlessButton>
-						<Fontisto name="share" size={24} color={theme.colors.primary} />
-					</BorderlessButton>
-				}
-			/>
+  const handleStartGame = () => {
+    Alert.alert('Entrar', 'Você está entrando na partida...');
+  };
 
-			<ImageBackground style={styles.banner} source={BannerImg}>
-				<View style={styles.bannerContent}>
-					<Text style={styles.title}>{guildSelected.guild.name}</Text>
-					<Text style={styles.subtitle}>{guildSelected.description}</Text>
-				</View>
-			</ImageBackground>
+  useEffect(() => {
+    fetchGuildWidget();
+  }, []);
 
-			{loading ? (
-				<Load />
-			) : (
-				<>
-					<ListHeader
-						title="Jogadores"
-						subtitle={`Total ${widget.members.length}`}
-					/>
-					<FlatList
-						data={widget.members}
-						keyExtractor={(item) => item.id}
-						renderItem={({ item }) => <Member data={item} />}
-						ItemSeparatorComponent={() => <ListDivider isCentered />}
-						style={styles.members}
-						contentContainerStyle={{ paddingBottom: 69 }}
-					/>
-				</>
-			)}
-			<View style={styles.footer}>
-				<ButtonIcon title="Entrar na partida" />
-			</View>
-		</Background>
-	);
+  return (
+    <Background>
+      <Header
+        title="Detalhes"
+        action={
+          <BorderlessButton activeOpacity={0.7} onPress={handleShareGame}>
+            <Fontisto name="share" size={24} color={theme.colors.primary} />
+          </BorderlessButton>
+        }
+      />
+
+      <ImageBackground style={styles.banner} source={BannerImg}>
+        <View style={styles.bannerContent}>
+          <Text style={styles.title}>{guildSelected.guild.name}</Text>
+          <Text style={styles.subtitle}>{guildSelected.description}</Text>
+        </View>
+      </ImageBackground>
+
+      {loading ? (
+        <Load />
+      ) : (
+        <>
+          <ListHeader
+            title="Jogadores"
+            subtitle={`Total ${widget.members.length}`}
+          />
+          <FlatList
+            data={widget.members}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => <Member data={item} />}
+            ItemSeparatorComponent={() => <ListDivider isCentered />}
+            style={styles.members}
+            contentContainerStyle={{ paddingBottom: 69 }}
+          />
+        </>
+      )}
+      <View style={styles.footer}>
+        <ButtonIcon title="Entrar na partida" onPress={handleStartGame} />
+      </View>
+    </Background>
+  );
 }

@@ -1,14 +1,14 @@
 import React from 'react';
-import { ActivityIndicator, Alert, Image, SafeAreaView, Text, View } from 'react-native';
+import { Alert, Image, SafeAreaView, Text, View } from 'react-native';
 import { useAuth } from '../../hooks/auth';
-import gameImg from '../../assets/illustration.png';
 import { Background } from '../../components/Background';
 import { ButtonIcon } from '../../components/ButtonIcon';
+import { Load } from '../../components/Load';
+import gameImg from '../../assets/illustration.png';
 import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
 
 export function SignIn() {
-	const { loading, user, signIn } = useAuth();
+  const { loading, signIn } = useAuth();
 
 	async function handleSignIn() {
 		try {
@@ -32,7 +32,7 @@ export function SignIn() {
 						favoritos com seus amigos
 					</Text>
 					{loading ? (
-						<ActivityIndicator color={theme.colors.primary}/>
+						<Load />
 					) : (
 						<ButtonIcon title={'Entre com Discord'} onPress={handleSignIn} />
 					)}

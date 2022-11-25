@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import {
-	KeyboardAvoidingView,
-	Platform,
-	ScrollView,
-	Text,
-	View,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  Text,
+  View,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import uuid from 'react-native-uuid';
@@ -24,7 +25,6 @@ import { theme } from '../../global/styles/theme';
 import { Guilds } from '../Guilds';
 import { styles } from './styles';
 import { COLLECTION_APPOINTMENTS } from '../../configs/database';
-import { Alert } from 'react-native';
 
 export function AppointmentCreate() {
 	const navigation = useNavigation();
@@ -54,67 +54,67 @@ export function AppointmentCreate() {
 		setOpenGuildsModal(false);
 	}
 
-	function validation() {
-		if (category === null) {
-			Alert.alert('Ateção', 'Você deve selecionar uma categoria.');
-			return false;
-		}
-		if (guild === null) {
-			Alert.alert('Ateção', 'Você deve selecionar um servidor.');
-			return false;
-		}
-		if (!day) {
-			Alert.alert('Ateção', 'Você deve informar o dia.');
-			return false;
-		}
-		if (Number(day) < 1 || Number(day) > 31) {
-			Alert.alert('Ateção', 'Dia inválido.');
-			return false;
-		}
-		if (!mouth) {
-			Alert.alert('Ateção', 'Você deve informar o mês.');
-			return false;
-		}
-		if (Number(mouth) < 1 || Number(mouth) > 12) {
-			Alert.alert('Ateção', 'Esse mês não existe.');
-			return false;
-		}
-		if (Number(mouth) === 2 && Number(day) > 29) {
-			Alert.alert('Ateção', 'Dia inválido.');
-			return false;
-		}
-		if (
-			(Number(mouth) === 4 ||
-				Number(mouth) === 6 ||
-				Number(mouth) === 9 ||
-				Number(mouth) === 11) &&
-			Number(day) > 30
-		) {
-			Alert.alert('Ateção', 'Dia inválido.');
-			return false;
-		}
-		if (!hour) {
-			Alert.alert('Ateção', 'Você deve informar as horas.');
-			return false;
-		}
-		if (Number(hour) > 23 || Number(hour) < 0) {
-			Alert.alert('Ateção', 'Hora inválida.');
-			return false;
-		}
-		if (!minute) {
-			Alert.alert('Ateção', 'Você deve informar os minutos.');
-			return false;
-		}
-		if (Number(minute) > 59 || Number(minute) < 0) {
-			Alert.alert('Ateção', 'Minutos inválido.');
-			return false;
-		}
-		if (!description) {
-			Alert.alert('Ateção', 'Você deve informar a descrição.');
-			return false;
-		}
-		return true;
-	}
+  function validation() {
+    if (category === null) {
+      Alert.alert('Atenção', 'Você deve selecionar uma categoria.');
+      return false;
+    }
+    if (guild === null) {
+      Alert.alert('Atenção', 'Você deve selecionar um servidor.');
+      return false;
+    }
+    if (!day) {
+      Alert.alert('Atenção', 'Você deve informar o dia.');
+      return false;
+    }
+    if (Number(day) < 1 || Number(day) > 31) {
+      Alert.alert('Atenção', 'Dia inválido.');
+      return false;
+    }
+    if (!mouth) {
+      Alert.alert('Atenção', 'Você deve informar o mês.');
+      return false;
+    }
+    if (Number(mouth) < 1 || Number(mouth) > 12) {
+      Alert.alert('Atenção', 'Esse mês não existe.');
+      return false;
+    }
+    if (Number(mouth) === 2 && Number(day) > 29) {
+      Alert.alert('Atenção', 'Dia inválido.');
+      return false;
+    }
+    if (
+      (Number(mouth) === 4 ||
+        Number(mouth) === 6 ||
+        Number(mouth) === 9 ||
+        Number(mouth) === 11) &&
+      Number(day) > 30
+    ) {
+      Alert.alert('Atenção', 'Dia inválido.');
+      return false;
+    }
+    if (!hour) {
+      Alert.alert('Atenção', 'Você deve informar as horas.');
+      return false;
+    }
+    if (Number(hour) > 23 || Number(hour) < 0) {
+      Alert.alert('Atenção', 'Hora inválida.');
+      return false;
+    }
+    if (!minute) {
+      Alert.alert('Atenção', 'Você deve informar os minutos.');
+      return false;
+    }
+    if (Number(minute) > 59 || Number(minute) < 0) {
+      Alert.alert('Atenção', 'Minutos inválido.');
+      return false;
+    }
+    if (!description) {
+      Alert.alert('Atenção', 'Você deve informar a descrição.');
+      return false;
+    }
+    return true;
+  }
 
 	async function handleSave() {
 		const isValid = validation();

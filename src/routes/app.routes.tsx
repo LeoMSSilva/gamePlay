@@ -5,20 +5,29 @@ import { Home } from '../screens/Home';
 import { theme } from '../global/styles/theme';
 import { AppointmentDetails } from '../screens/AppointmentDetails';
 import { AppointmentCreate } from '../screens/AppointmentCreate';
+import { AppointmentProps } from '../components/Appointments';
+
+export type IStackRoutesList = {
+  Home: undefined;
+  AppointmentCreate: undefined;
+  AppointmentDetails: { guildSelected: AppointmentProps };
+  Guilds: undefined;
+  SignIn: undefined;
+};
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function AuthRoutes() {
-	return (
-		<Navigator
-			headerMode="none"
-			screenOptions={{
-				cardStyle: { backgroundColor: theme.colors.secondary100 },
-			}}
-		>
-			<Screen name="Home" component={Home} />
-			<Screen name="AppointmentDetails" component={AppointmentDetails} />
-			<Screen name="AppointmentCreate" component={AppointmentCreate} />
-		</Navigator>
-	);
+  return (
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: { backgroundColor: theme.colors.secondary100 },
+      }}
+    >
+      <Screen name="Home" component={Home} />
+      <Screen name="AppointmentDetails" component={AppointmentDetails} />
+      <Screen name="AppointmentCreate" component={AppointmentCreate} />
+    </Navigator>
+  );
 }
