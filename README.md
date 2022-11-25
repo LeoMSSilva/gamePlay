@@ -29,6 +29,8 @@ This project was developed with **React Native** and using **Expo**.
 
 Organize your games easily. Create groups to play your favorite games with your friends.
 
+You can access the project through the qr code published at [expo](https://expo.dev/@leomssilva/gamePlay).
+
 ---
 
 # :dart: Installation
