@@ -1,0 +1,36 @@
+{
+  "env": {
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "@react-native-community"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "@react-native-community"
+  ],
+  "ignorePatterns": [
+    "node_modules",
+    "*.config.*",
+    "*.d.ts"
+  ],
+  "noInlineConfig": true,
+  "reportUnusedDisableDirectives": true,
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-floating-promises": "off"
+  }
+}
