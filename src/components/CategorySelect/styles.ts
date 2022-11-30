@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-	container: {
-		minHeight: 120,
-		maxHeight: 120,
-		paddingLeft: 24,
-		marginBottom: 42
-	},
+  container: {
+    minHeight: 120,
+    maxHeight: 120,
+    paddingLeft: 24,
+    paddingRight: 40,
+    marginBottom: 42,
+  },
 });

@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Image,
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
   View,
 } from 'react-native';
-import Discord from '../../assets/discord.png';
+
+import Discord from '../../assets/discord.svg';
 import { styles } from './styles';
 
 type Props = TouchableOpacityProps & {
@@ -15,9 +15,13 @@ type Props = TouchableOpacityProps & {
 
 export function ButtonIcon({ title, ...rest }: Props) {
   return (
-    <TouchableOpacity style={styles.container} {...rest} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.7}
+      {...rest}
+    >
       <View style={styles.iconWrapper}>
-        <Image source={Discord} style={styles.icon} />
+        <Discord />
       </View>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>

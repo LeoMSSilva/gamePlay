@@ -1,8 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { FlatList, SafeAreaView, View } from 'react-native';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { COLLECTION_APPOINTMENTS } from '../../configs/database';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+
 import { AppointmentProps, Appointments } from '../../components/Appointments';
 import { Background } from '../../components/Background';
 import { ButtonAdd } from '../../components/ButtonAdd';
@@ -11,6 +12,7 @@ import { ListDivider } from '../../components/ListDivider';
 import { ListHeader } from '../../components/ListHeader';
 import { Load } from '../../components/Load';
 import { Profile } from '../../components/Profile';
+import { COLLECTION_APPOINTMENTS } from '../../configs/database';
 import { styles } from './styles';
 
 export function Home() {
@@ -33,18 +35,24 @@ export function Home() {
 
   const loadAppointments = async () => {
     const response = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS);
-    const storage: AppointmentProps[] = response ? JSON.parse(response) : [];
-    if (category)
+    const storage = (
+      response ? JSON.parse(response) : []
+    ) as AppointmentProps[];
+    if (category) {
       setAppointments(storage.filter((item) => item.category === category));
-    else setAppointments(storage);
+    } else {
+      setAppointments(storage);
+    }
     setLoading(false);
   };
 
   useFocusEffect(
     useCallback(() => {
       loadAppointments();
-    }, [category])
+    }, [category]),
   );
+
+  const separator = () => <ListDivider />;
 
   return (
     <Background>
@@ -70,8 +78,7 @@ export function Home() {
             data={appointments}
             keyExtractor={(item) => item.id}
             style={styles.matches}
-            contentContainerStyle={{ paddingBottom: 69 }}
-            ItemSeparatorComponent={() => <ListDivider />}
+            ItemSeparatorComponent={separator}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
               <Appointments

@@ -1,11 +1,12 @@
 import React from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from '../screens/Home';
-import { theme } from '../global/styles/theme';
-import { AppointmentDetails } from '../screens/AppointmentDetails';
-import { AppointmentCreate } from '../screens/AppointmentCreate';
 import { AppointmentProps } from '../components/Appointments';
+import { theme } from '../global/styles/theme';
+import { AppointmentCreate } from '../screens/AppointmentCreate';
+import { AppointmentDetails } from '../screens/AppointmentDetails';
+import { Home } from '../screens/Home';
 
 export type IStackRoutesList = {
   Home: undefined;
@@ -25,9 +26,18 @@ export function AuthRoutes() {
         cardStyle: { backgroundColor: theme.colors.secondary100 },
       }}
     >
-      <Screen name="Home" component={Home} />
-      <Screen name="AppointmentDetails" component={AppointmentDetails} />
-      <Screen name="AppointmentCreate" component={AppointmentCreate} />
+      <Screen
+        name="Home"
+        component={Home}
+      />
+      <Screen
+        name="AppointmentDetails"
+        component={AppointmentDetails}
+      />
+      <Screen
+        name="AppointmentCreate"
+        component={AppointmentCreate}
+      />
     </Navigator>
   );
 }

@@ -1,15 +1,17 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { AuthProvider } from './src/hooks/auth';
-import { Routes } from './src/routes';
+
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 import {
   Rajdhani_500Medium,
   Rajdhani_700Bold,
   useFonts,
 } from '@expo-google-fonts/rajdhani';
+
 import { Background } from './src/components/Background';
 import { Load } from './src/components/Load';
+import { AuthProvider } from './src/hooks/auth';
+import { Routes } from './src/routes';
 
 const App = () => {
   const [fontsLoaded] = useFonts({

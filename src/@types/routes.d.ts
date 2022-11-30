@@ -1,4 +1,4 @@
-import { IStackRoutesList } from "../routes/app.routes";
+import { IStackRoutesList } from '../routes/app.routes';
 
 declare global {
   namespace ReactNavigation {
