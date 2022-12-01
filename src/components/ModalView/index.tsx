@@ -6,7 +6,8 @@ import {
   View,
 } from 'react-native';
 
-import { Background } from '../Background';
+import { Background } from '~/components/Background';
+
 import { styles } from './styles';
 
 type Props = ModalProps & {

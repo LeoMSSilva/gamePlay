@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 
-import { Guild, GuildProps } from '../../components/Guild';
-import { ListDivider } from '../../components/ListDivider';
-import { Load } from '../../components/Load';
-import { api } from '../../services/api';
+import { Guild, GuildProps } from '~/components/Guild';
+import { ListDivider } from '~/components/ListDivider';
+import { Load } from '~/components/Load';
+import { api } from '~/services/api';
+
 import { styles } from './styles';
 
 type Props = {

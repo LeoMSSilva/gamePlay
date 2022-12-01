@@ -15,18 +15,19 @@ import { useNavigation } from '@react-navigation/native';
 
 import { Feather } from '@expo/vector-icons';
 
-import { Background } from '../../components/Background';
-import { Button } from '../../components/Button';
-import { CategorySelect } from '../../components/CategorySelect';
-import { GuildProps } from '../../components/Guild';
-import { GuildIcon } from '../../components/GuildIcon';
-import { Header } from '../../components/Header';
-import { ModalView } from '../../components/ModalView';
-import { SmallInput } from '../../components/SmallInput';
-import { TextArea } from '../../components/TextArea';
-import { COLLECTION_APPOINTMENTS } from '../../configs/database';
-import { theme } from '../../global/styles/theme';
-import { Guilds } from '../Guilds';
+import { Background } from '~/components/Background';
+import { Button } from '~/components/Button';
+import { CategorySelect } from '~/components/CategorySelect';
+import { GuildProps } from '~/components/Guild';
+import { GuildIcon } from '~/components/GuildIcon';
+import { Header } from '~/components/Header';
+import { ModalView } from '~/components/ModalView';
+import { SmallInput } from '~/components/SmallInput';
+import { TextArea } from '~/components/TextArea';
+import { COLLECTION_APPOINTMENTS } from '~/configs/database';
+import { Guilds } from '~/screens/Guilds';
+import { theme } from '~/styles/theme';
+
 import { styles } from './styles';
 
 type Appointment = {

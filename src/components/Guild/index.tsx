@@ -8,8 +8,9 @@ import {
 
 import { Feather } from '@expo/vector-icons';
 
-import { theme } from '../../global/styles/theme';
-import { GuildIcon } from '../GuildIcon';
+import { GuildIcon } from '~/components/GuildIcon';
+import { theme } from '~/styles/theme';
+
 import { styles } from './styles';
 
 export type GuildProps = {

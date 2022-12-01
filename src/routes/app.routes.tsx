@@ -2,11 +2,11 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { AppointmentProps } from '../components/Appointments';
-import { theme } from '../global/styles/theme';
-import { AppointmentCreate } from '../screens/AppointmentCreate';
-import { AppointmentDetails } from '../screens/AppointmentDetails';
-import { Home } from '../screens/Home';
+import { AppointmentProps } from '~/components/Appointments';
+import { AppointmentCreate } from '~/screens/AppointmentCreate';
+import { AppointmentDetails } from '~/screens/AppointmentDetails';
+import { Home } from '~/screens/Home';
+import { theme } from '~/styles/theme';
 
 export type IStackRoutesList = {
   Home: undefined;

@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import { categories } from '../../utils/categories';
-import { Category } from '../Category';
+import { Category } from '~/components/Category';
+import { categories } from '~/utils/categories';
+
 import { styles } from './styles';
 
 type Props = {

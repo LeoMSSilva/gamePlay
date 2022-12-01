@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 
-import DiscordSvg from '../../assets/discord.svg';
+import DiscordSvg from '~/assets/discord.svg';
+
 import { styles } from './styles';
 
 type Props = {

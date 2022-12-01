@@ -6,17 +6,18 @@ import { useRoute } from '@react-navigation/native';
 
 import { Fontisto } from '@expo/vector-icons';
 
-import BannerImg from '../../assets/banner.png';
-import { AppointmentProps } from '../../components/Appointments';
-import { Background } from '../../components/Background';
-import { ButtonIcon } from '../../components/ButtonIcon';
-import { Header } from '../../components/Header';
-import { ListDivider } from '../../components/ListDivider';
-import { ListHeader } from '../../components/ListHeader';
-import { Load } from '../../components/Load';
-import { Member, MemberProps } from '../../components/Member';
-import { theme } from '../../global/styles/theme';
-import { api } from '../../services/api';
+import BannerImg from '~/assets/banner.png';
+import { AppointmentProps } from '~/components/Appointments';
+import { Background } from '~/components/Background';
+import { ButtonIcon } from '~/components/ButtonIcon';
+import { Header } from '~/components/Header';
+import { ListDivider } from '~/components/ListDivider';
+import { ListHeader } from '~/components/ListHeader';
+import { Load } from '~/components/Load';
+import { Member, MemberProps } from '~/components/Member';
+import { api } from '~/services/api';
+import { theme } from '~/styles/theme';
+
 import { styles } from './styles';
 
 type Params = {

@@ -6,7 +6,8 @@ import {
   View,
 } from 'react-native';
 
-import Discord from '../../assets/discord.svg';
+import Discord from '~/assets/discord.svg';
+
 import { styles } from './styles';
 
 type Props = TouchableOpacityProps & {

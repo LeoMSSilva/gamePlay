@@ -8,10 +8,10 @@ import {
   useFonts,
 } from '@expo-google-fonts/rajdhani';
 
-import { Background } from './src/components/Background';
-import { Load } from './src/components/Load';
-import { AuthProvider } from './src/hooks/auth';
-import { Routes } from './src/routes';
+import { Background } from '~/components/Background';
+import { Load } from '~/components/Load';
+import { AuthProvider } from '~/hooks/auth';
+import { Routes } from '~/routes';
 
 const App = () => {
   const [fontsLoaded] = useFonts({

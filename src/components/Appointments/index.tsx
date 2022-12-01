@@ -4,12 +4,13 @@ import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-import CalendarSvg from '../../assets/calendar.svg';
-import PlayerSvg from '../../assets/player.svg';
-import { theme } from '../../global/styles/theme';
-import { categories } from '../../utils/categories';
-import { GuildProps } from '../Guild';
-import { GuildIcon } from '../GuildIcon';
+import CalendarSvg from '~/assets/calendar.svg';
+import PlayerSvg from '~/assets/player.svg';
+import { GuildProps } from '~/components/Guild';
+import { GuildIcon } from '~/components/GuildIcon';
+import { theme } from '~/styles/theme';
+import { categories } from '~/utils/categories';
+
 import { styles } from './styles';
 
 export type AppointmentProps = {

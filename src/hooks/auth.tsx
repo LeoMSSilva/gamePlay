@@ -10,8 +10,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import * as AuthSession from 'expo-auth-session';
 
-import { COLLECTION_USER } from '../configs/database';
-import { api } from '../services/api';
+import { COLLECTION_USER } from '~/configs/database';
+import { api } from '~/services/api';
 
 type User = {
   id: string;

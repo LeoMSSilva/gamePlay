@@ -1,11 +1,12 @@
 import React from 'react';
 import { Alert, Image, SafeAreaView, Text, View } from 'react-native';
 
-import gameImg from '../../assets/illustration.png';
-import { Background } from '../../components/Background';
-import { ButtonIcon } from '../../components/ButtonIcon';
-import { Load } from '../../components/Load';
-import { useAuth } from '../../hooks/auth';
+import gameImg from '~/assets/illustration.png';
+import { Background } from '~/components/Background';
+import { ButtonIcon } from '~/components/ButtonIcon';
+import { Load } from '~/components/Load';
+import { useAuth } from '~/hooks/auth';
+
 import { styles } from './styles';
 
 export function SignIn() {

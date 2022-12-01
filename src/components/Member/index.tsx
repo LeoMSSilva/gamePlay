@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { theme } from '../../global/styles/theme';
-import { Avatar } from '../Avatar';
+import { Avatar } from '~/components/Avatar';
+import { theme } from '~/styles/theme';
+
 import { styles } from './styles';
 
 export type MemberProps = {

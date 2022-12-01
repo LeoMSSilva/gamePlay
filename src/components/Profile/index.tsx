@@ -2,8 +2,9 @@ import React from 'react';
 import { Alert, Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { useAuth } from '../../hooks/auth';
-import { Avatar } from '../Avatar';
+import { Avatar } from '~/components/Avatar';
+import { useAuth } from '~/hooks/auth';
+
 import { styles } from './styles';
 
 export function Profile() {
