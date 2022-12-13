@@ -15,7 +15,7 @@
     "format": "prettier -w .",
     "lint": "eslint . --fix",
     "commit": "cz",
-    "configure-husky": "husky install && husky add .husky/pre-commit 'yarn lint-staged' && husky add .husky/prepare-commit-msg 'exec < /dev/tty && yarn cz --hook || true' && husky add .husky/commit-msg 'yarn commitlint -e $1'",
+    "configure-husky": "husky install && husky add .husky/pre-commit 'yarn lint-staged' && husky add .husky/prepare-commit-msg 'exec < /dev/tty && yarn cz --hook || true' && husky add .husky/commit-msg 'yarn commitlint -e $1' && husky add .husky/pre-push'expo publish'",
     "lint-staged": "lint-staged"
   },
   "dependencies": {
